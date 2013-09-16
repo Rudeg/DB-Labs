@@ -12,13 +12,10 @@ DECLARE
   t_job text;
   cmd text;
   ts_start timestamp;
-  ts_end timestamp;
 BEGIN
   EXECUTE format('TRUNCATE TABLE %s', tbl);
 
   ts_start := clock_timestamp();
-  RAISE NOTICE 'Begin: %', ts_start;
-  
   cmd := 'INSERT INTO ' || tbl::regclass;
   RAISE NOTICE '%', cmd;
   cmd := cmd || ' (ename, sal, hiredate, job) VALUES ($1,$2,$3,$4)';
@@ -32,9 +29,7 @@ BEGIN
     EXECUTE cmd USING t_ename, m_sal, d_hiredate, t_job;
   END LOOP;
 
-  ts_end := clock_timestamp();
-  RAISE NOTICE 'End: %', ts_end;
-  RAISE NOTICE 'Duration: %', ts_end - ts_start;
+  RAISE NOTICE 'Duration: %', clock_timestamp() - ts_start;
   
 END;$BODY$
   LANGUAGE plpgsql VOLATILE

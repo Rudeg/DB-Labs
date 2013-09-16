@@ -16,11 +16,11 @@ WITH (
 ALTER TABLE idx
   OWNER TO fantastik;
 
--- Index: idx_ename_idx
+-- Index: idx_ename
 
--- DROP INDEX idx_ename_idx;
+-- DROP INDEX idx_ename;
 
-CREATE INDEX idx_ename_idx
+CREATE INDEX idx_ename
   ON idx
   USING btree
   (ename COLLATE pg_catalog."default");

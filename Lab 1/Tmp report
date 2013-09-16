@@ -1,0 +1,24 @@
+exec_fill_tables.sql
+
+NOTICE:  INSERT INTO idx
+NOTICE:  Duration: 00:14:06.278617
+NOTICE:  INSERT INTO n_idx
+NOTICE:  Duration: 00:10:10.320468
+
+
+exec_select_from.sql
+NOTICE:  SELECT ename FROM idx ORDER by ename;
+NOTICE:  Duration 00:00:31.801552
+NOTICE:  SELECT ename FROM n_idx ORDER by ename;
+NOTICE:  Duration 00:00:31.779229
+
+NOTICE:  SELECT ename FROM idx ORDER by ename,sal;
+NOTICE:  Duration 00:00:31.973577
+NOTICE:  SELECT ename FROM n_idx ORDER by ename,sal;
+NOTICE:  Duration 00:00:33.615377
+
+NOTICE:  SELECT ename FROM idx ORDER by hiredate;
+NOTICE:  Duration 00:00:01.694784
+
+NOTICE:  SELECT ename FROM n_idx ORDER by hiredate;
+NOTICE:  Duration 00:00:01.620123
