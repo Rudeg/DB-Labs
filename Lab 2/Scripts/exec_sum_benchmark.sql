@@ -1,0 +1,1 @@
+﻿SELECT f_sum_benchmark();
