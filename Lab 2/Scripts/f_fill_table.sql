@@ -1,8 +1,8 @@
-﻿-- Function: f_fill_table(regclass)
+﻿-- Function: f_fill_table(regclass, integer)
 
--- DROP FUNCTION f_fill_table(regclass);
+-- DROP FUNCTION f_fill_table(regclass, integer);
 
-CREATE OR REPLACE FUNCTION f_fill_table(tbl regclass)
+CREATE OR REPLACE FUNCTION f_fill_table(tbl regclass, row_number integer)
   RETURNS void AS
 $BODY$
 DECLARE
@@ -20,7 +20,7 @@ BEGIN
   RAISE NOTICE '%', cmd;
   cmd := cmd || ' (ename, sal, hiredate, job) VALUES ($1,$2,$3,$4)';
   
-  FOR i IN 1..1000000 LOOP
+  FOR i IN 1..row_number LOOP
     t_ename := f_random_string(50);
     m_sal := f_random_salary(10000, 1000);
     d_hiredate := f_random_date(1000);
@@ -34,5 +34,5 @@ BEGIN
 END;$BODY$
   LANGUAGE plpgsql VOLATILE
   COST 100;
-ALTER FUNCTION f_fill_table(regclass)
+ALTER FUNCTION f_fill_table(regclass, integer)
   OWNER TO fantastik;

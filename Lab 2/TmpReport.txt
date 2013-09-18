@@ -1,0 +1,13 @@
+exec_fill_tables.sql
+NOTICE:  INSERT INTO idx
+NOTICE:  Duration: 00:13:48.404937
+
+exec_sum_benchmark.sql
+NOTICE:  PERFORM SUM(sal) FROM idx;
+NOTICE:  Duration: 00:00:00.14147
+NOTICE:  SELECT f_sum_by_cursor();
+NOTICE:  Duration: 00:00:01.181186
+
+exec_update_tables_by_cursor.sql
+NOTICE:  UPDATE idx
+NOTICE:  Duration: 00:17:00.34194

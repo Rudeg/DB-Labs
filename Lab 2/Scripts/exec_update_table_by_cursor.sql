@@ -1,0 +1,1 @@
+﻿SELECT f_update_table_by_cursor();
