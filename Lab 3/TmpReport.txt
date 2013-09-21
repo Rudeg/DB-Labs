@@ -1,0 +1,21 @@
+exec_fill_tables.sql
+NOTICE:  INSERT INTO tc_customer AND tc_order
+NOTICE:  Duration: 00:00:06.190001
+NOTICE:  INSERT INTO ic_customer AND ic_order
+NOTICE:  Duration: 00:00:06.20874
+
+exec_update_tables.sql
+NOTICE:  Customer: SELECT * FROM tc_customer FOR UPDATE
+NOTICE:  Duration: 00:00:03.034734
+NOTICE:  Order: SELECT * FROM tc_order FOR UPDATE
+NOTICE:  Duration: 00:00:02.971394
+NOTICE:  Customer: SELECT * FROM ic_customer FOR UPDATE
+NOTICE:  Duration: 00:00:02.94583
+NOTICE:  Order: SELECT * FROM ic_order FOR UPDATE
+NOTICE:  Duration: 00:00:02.98853
+
+exec_delete_tables.sql
+NOTICE:  DELETE FROM tc_customer;
+NOTICE:  Duration: 00:00:17.489919
+NOTICE:  DELETE FROM ic_customer;
+NOTICE:  Duration: 00:00:13.754688

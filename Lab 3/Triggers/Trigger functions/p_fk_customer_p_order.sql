@@ -9,8 +9,8 @@ BEGIN
   BEGIN
     IF (TG_OP = 'DELETE') THEN
       DELETE FROM tc_order WHERE customer_id = OLD.id;
-    ELSIF (TG_OP = 'UPDATE') THEN
-      UPDATE tc_order SET customer_id = OLD.id;
+    ELSIF (TG_OP = 'UPDATE' AND NEW.id != OLD.id) THEN
+      UPDATE tc_order SET customer_id = NEW.id WHERE customer_id = OLD.id;
     END IF;
     RETURN NEW;
   EXCEPTION WHEN others THEN
