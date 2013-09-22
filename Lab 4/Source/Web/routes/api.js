@@ -7,7 +7,7 @@
  */
 
 var pg = require('pg');
-var cs = 'postgres://fantastik:123@localhost:5432/dblab4';
+var cs = 'postgres://postgres:123@localhost:5432/postgres';
 
 
 exports.select = function(req, res){
@@ -19,7 +19,6 @@ exports.update = function(req, res) {
 exports.procedure = function(req, res) {
     ProcedureQuery(res);
 }
-
 
 function SelectQuery(res) {
     Execute(res, selectQuery);

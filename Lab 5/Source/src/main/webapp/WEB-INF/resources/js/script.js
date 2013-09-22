@@ -19,9 +19,7 @@ function UpdateFromApi() {
     RestRequest('/updateTest', function (data) {
         Echo('Query success');
 
-        $.each(data, function (i, theItem) {
-            EchoRowData(theItem);
-        });
+        EchoRowData(data);
         Echo('');
 
         ScrollBottom()
@@ -34,9 +32,7 @@ function ProcedureFromApi() {
     RestRequest('/procedure', function (data) {
         Echo('Query success');
 
-        $.each(data, function (i, theItem) {
-            EchoRowData(theItem);
-        });
+        EchoRowData(data);
         Echo('');
 
         ScrollBottom()
@@ -44,8 +40,7 @@ function ProcedureFromApi() {
 }
 
 function RestRequest(endpoint, success) {
-    $.ajax(
-        {
+    $.ajax({
             type: "GET",
             url: DefaultUrl() + endpoint,
             data: "{}",
@@ -77,6 +72,6 @@ function Echo(str) {
 }
 
 function ScrollBottom() {
-    var textview = $('#textview');
-    textview.scrollTop(textview[0].scrollHeight - textview.height());
+    var textView = $('#textview');
+    textView.scrollTop(textView[0].scrollHeight - textView.height());
 }

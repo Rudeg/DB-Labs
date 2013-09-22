@@ -19,31 +19,37 @@ public class PgApi {
 
     Connection con;
     Statement st;
-    public ResultSet rs;
+    ResultSet rs;
 
     String url, password, user;
 
     public PgApi() {
+        url = null;
+        user = null;
+        password = null;
+
         try {
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-        url = "jdbc:postgresql://localhost:5432/dblab5";
-        user = "fantastik";
+        url = "jdbc:postgresql://localhost:5432/postgres";
+        user = "postgres";
         password = "123";
     }
 
-    public void runSelect() {
+    public Data[] runSelect() {
+        Data[] dataArray = null;
         try {
             con = DriverManager.getConnection(url, user, password);
             st = con.createStatement();
             rs = st.executeQuery(selectQuery);
-
-            if (rs.next()) {
-                System.out.println(rs.getString(1));
+            dataArray = new Data[10];
+            int i = 0 ;
+            while (rs.next()) {
+                dataArray[i] = new Data(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4));
+                i++;
             }
-
         } catch (SQLException ex) {
             Logger lgr = Logger.getLogger(Version.class.getName());
             lgr.log(Level.SEVERE, ex.getMessage(), ex);
@@ -64,16 +70,18 @@ public class PgApi {
                 lgr.log(Level.WARNING, ex.getMessage(), ex);
             }
         }
+        return dataArray;
     }
 
-    public void runUpdate() {
+    public Data runUpdate() {
+        Data data = null;
         try {
             con = DriverManager.getConnection(url, user, password);
             st = con.createStatement();
             rs = st.executeQuery(updateQuery);
 
             if (rs.next()) {
-                System.out.println(rs.getString(1));
+                data = new Data(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4));
             }
 
         } catch (SQLException ex) {
@@ -96,16 +104,18 @@ public class PgApi {
                 lgr.log(Level.WARNING, ex.getMessage(), ex);
             }
         }
+        return data;
     }
 
-    public void runProcedure() {
+    public Data runProcedure() {
+        Data data = null;
         try {
             con = DriverManager.getConnection(url, user, password);
             st = con.createStatement();
             rs = st.executeQuery(procedureQuery);
 
             if (rs.next()) {
-                System.out.println(rs.getString(1));
+                data = new Data(rs.getString(2), rs.getString(3), rs.getString("ename"), rs.getString("job"));
             }
 
         } catch (SQLException ex) {
@@ -128,5 +138,6 @@ public class PgApi {
                 lgr.log(Level.WARNING, ex.getMessage(), ex);
             }
         }
+        return data;
     }
 }
