@@ -1,0 +1,25 @@
+body {
+  width: 900px;
+  margin: 0 auto !important;
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+div.center {
+    text-align: center;
+}
+
+textarea {
+    width: 800px;
+    height: 400px;
+    resize: none;
+}
+
+button {
+    margin-top: 20px !important;
+    margin-left: 20px !important;
+}
