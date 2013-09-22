@@ -24,7 +24,12 @@ public class PgApi {
     String url, password, user;
 
     public PgApi() {
-        url = "jdbc:postgresql://localhost:5432/dblab4";
+        try {
+            Class.forName("org.postgresql.Driver");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        url = "jdbc:postgresql://localhost:5432/dblab5";
         user = "fantastik";
         password = "123";
     }
