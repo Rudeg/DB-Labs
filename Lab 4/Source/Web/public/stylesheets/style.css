@@ -15,7 +15,8 @@ div.center {
 
 textarea {
     width: 800px;
-    height: 300px;
+    height: 400px;
+    resize: none;
 }
 
 button {
