@@ -1,10 +1,10 @@
 extends layout
 
 block content
-  script(src='javascripts/db_api.js')
-  h1= title
-  div
+  div.center
+      h1=title
       textarea
-      button
-      button
-      button
+      br
+      button.btn.btn-default Run select tests
+      button.btn.btn-default Run update tests
+      button.btn.btn-default Run procedure
