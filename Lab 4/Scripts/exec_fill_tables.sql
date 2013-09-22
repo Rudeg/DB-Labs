@@ -1,1 +1,0 @@
-SELECT f_fill_table('idx', 10);

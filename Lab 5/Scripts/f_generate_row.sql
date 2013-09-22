@@ -1,4 +1,4 @@
-﻿-- Function: f_generate_row()
+-- Function: f_generate_row()
 
 -- DROP FUNCTION f_generate_row();
 
