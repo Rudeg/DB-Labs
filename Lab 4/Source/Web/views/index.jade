@@ -3,8 +3,8 @@ extends layout
 block content
   div.center
       h1=title
-      textarea(readonly="true")
+      textarea(readonly="true", id="textview")
       br
-      button.btn.btn-default Run select tests
-      button.btn.btn-default Run update tests
-      button.btn.btn-default Run procedure
+      button.btn.btn-default(onclick="SelectFromApi()") Run select tests
+      button.btn.btn-default(onclick="UpdateFromApi()") Run update tests
+      button.btn.btn-default(onclick="ProcedureFromApi()") Run procedure
