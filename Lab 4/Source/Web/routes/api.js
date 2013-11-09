@@ -7,7 +7,7 @@
  */
 
 var pg = require('pg');
-var cs = 'postgres://postgres:123@localhost:5432/postgres';
+var cs = 'postgres://postgres:123@localhost:5432/dblab4';
 
 
 exports.select = function(req, res){

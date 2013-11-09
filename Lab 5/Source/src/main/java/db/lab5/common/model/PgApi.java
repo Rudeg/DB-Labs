@@ -33,7 +33,7 @@ public class PgApi {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-        url = "jdbc:postgresql://localhost:5432/postgres";
+        url = "jdbc:postgresql://localhost:5432/dblab5";
         user = "postgres";
         password = "123";
     }
